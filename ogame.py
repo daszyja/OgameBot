@@ -92,7 +92,7 @@ class OGame(object):
     def is_researching( self ):
         if not self.is_logged():
             self.login()
-
+    
         soup = BeautifulSoup( self.get_page_content( 'research' ) )
         for research in constants.researches:
             if soup.find( 'div', title= re.compile( research + '\s*' ) ):
