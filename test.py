@@ -9,4 +9,4 @@ ogame = OGame(  's120-us.ogame.gameforge.com',
                 'ogadrepr7cHubra' )
                 
 
-print ogame.num_missions()
+print ogame.is_researching()
