@@ -88,6 +88,18 @@ class OGame(object):
                   'energy': energy, 'darkmatter': darkmatter}
         return result
 
+
+    def is_researching( self ):
+        if not self.is_logged():
+            self.login()
+
+        soup = BeautifulSoup( self.get_page_content( 'research' ) )
+        for research in constants.researches:
+            if soup.find( 'div', title= re.compile( research + '\s*' ) ):
+                return True
+        return False
+
+
     def get_research( self, name = None ):
         def research_reg( soup, name ):
             tag = soup.find('span', text=re.compile( name +'\s*'))
@@ -101,7 +113,6 @@ class OGame(object):
                 tag = parent.find( 'span', {'class': 'level'} )
                 return int( tag.text )
             
-        
         if not self.is_logged():
             self.login()
             
