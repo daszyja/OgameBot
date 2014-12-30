@@ -38,7 +38,10 @@ def espionage( target_txt, wait_time, verbose =True ):
 	home = ogame.get_planet_by_name(home)
 	while targets:
 		current_fleets = ogame.num_missions()
-		num_fleets = potential_slots - current_fleets
+		open_fleets = potential_slots - current_fleets
+		
+		total_probes = ogame.get_ships( home )['EspionageProbe']
+		num_fleets = min( open_fleets, total_probes/num_probes )
 		
 		j += 1
 		vprint( 'Beginning Round %d' %(j))
@@ -67,9 +70,9 @@ def espionage( target_txt, wait_time, verbose =True ):
 	vprint('Waiting for last wave...')
 	time.sleep(wait_time/2)
 
-	print("Spying complete")
+	print("Espionage complete")
 
 if __name__ == '__main__':
-	# txt, probes, fleet, wait, verbose
-	espionage( 'esp_targets/alpha1.txt', 90 )
+	
+	espionage( 'esp_targets/alpha2.txt', 90 )
 
