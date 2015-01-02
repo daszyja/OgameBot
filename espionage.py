@@ -24,6 +24,7 @@ def espionage( target_txt, wait_time, verbose =True ):
 			'system': int(nums[1]),
 			'position': int(nums[2])
 		} )
+	copy = list( targets )
 	vprint( 'read target file\n' )
 
 	j = 0
@@ -37,6 +38,7 @@ def espionage( target_txt, wait_time, verbose =True ):
 	num_probes = ogame.get_preferred_probes()
 	home = ogame.get_planet_by_name(home)
 	while targets:
+		ogame.login()
 		current_fleets = ogame.num_missions()
 		open_fleets = potential_slots - current_fleets
 		
@@ -46,8 +48,7 @@ def espionage( target_txt, wait_time, verbose =True ):
 		j += 1
 		vprint( 'Beginning Round %d' %(j))
 		for i in range(num_fleets):
-			if not ogame.is_logged():
-				ogame.login()
+			
 			ships = [(Ships['EspionageProbe'], num_probes)]
 			speed = Speed['100%']
 			where = targets.popleft()
@@ -60,6 +61,7 @@ def espionage( target_txt, wait_time, verbose =True ):
 			if not targets:
 				done = True
 				break
+		ogame.logout()
 
 		vprint( 'Round %d complete\n' %(j))
 		if done:
@@ -69,10 +71,12 @@ def espionage( target_txt, wait_time, verbose =True ):
 	ogame.logout()
 	vprint('Waiting for last wave...')
 	time.sleep(wait_time/2)
-
+	 
 	print("Espionage complete")
+	
+	return copy
 
 if __name__ == '__main__':
 	
-	espionage( 'esp_targets/alpha2.txt', 90 )
+	espionage( 'esp_targets/epsilon.txt', 90 )
 
