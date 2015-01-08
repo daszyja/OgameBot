@@ -436,5 +436,5 @@ class OGame(object):
                 yield Message(tag)
                 
     def fetch_body(self, message):
-        message.get_body(self.session.get(message.url).content)
+        return message.get_body(self.session.get(message.url).content)
 
