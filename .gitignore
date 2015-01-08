@@ -1,2 +1,3 @@
-.pyc
+*.pyc
 .c9
+*.html
