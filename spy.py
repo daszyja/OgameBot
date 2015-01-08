@@ -49,7 +49,7 @@ def spy( target_txt, wait_time, verbose =True ):
 		vprint( 'Beginning Round %d' %(j))
 		for i in range(num_fleets):
 			
-			ships = [(Ships['EspionageProbe'], num_probes)]
+			ships = [(Ships['Espionage Probe'], num_probes)]
 			speed = Speed['100%']
 			where = targets.popleft()
 			mission = Missions['Spy']
