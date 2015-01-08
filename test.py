@@ -10,5 +10,5 @@ ogame = OGame(  's120-us.ogame.gameforge.com',
                 'thaunatos',
                 'ogadrepr7cHubra' )
 
-for message in ogame.messages(2):
-    print(message.subject + ' ' + str(message.time))
+for message in ogame.messages():
+    print(message)

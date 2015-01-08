@@ -167,20 +167,20 @@ class OGame(object):
         espionageProbe = get_nbr(soup, 'civil210')
         solarSatellite = get_nbr(soup, 'civil212')
 
-        return {'Light Fighter': lightFighter,
-                'Heavy Fighter': heavyFighter,
+        return {'LightFighter': lightFighter,
+                'HeavyFighter': heavyFighter,
                 'Cruiser': cruiser,
                 'Battleship': battleship,
                 'Battlecruiser': battlecruiser,
                 'Bomber': bomber,
                 'Destroyer': destroyer,
                 'Deathstar': deathstar,
-                'Small Cargo': smallCargo,
-                'Large Cargo': largeCargo,
-                'Colony Ship': colonyShip,
+                'SmallCargo': smallCargo,
+                'LargeCargo': largeCargo,
+                'ColonyShip': colonyShip,
                 'Recycler': recycler,
-                'Espionage Probe': espionageProbe,
-                'Solar Satellite': solarSatellite}
+                'EspionageProbe': espionageProbe,
+                'SolarSatellite': solarSatellite}
 
 
     def is_under_attack(self):
@@ -437,3 +437,4 @@ class OGame(object):
                 
     def fetch_body(self, message):
         message.get_body(self.session.get(message.url).content)
+

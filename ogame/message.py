@@ -68,3 +68,7 @@ class Message(object):
         strainer = SoupStrainer('div', {'class':'note'})
         soup = BeautifulSoup(body_html, parse_only=strainer)
         self.body = soup.text.strip()
+        
+            
+    def __str__(self):
+        return str(self.time) + ' ' + self.subject
