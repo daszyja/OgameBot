@@ -77,4 +77,4 @@ def spy( target_txt, wait_time, verbose =True ):
 	return copy
 
 if __name__ == '__main__':
-	spy( 'esp_targets/zeta.txt', 90 )
+	spy( 'esp_targets/alpha.txt', 90 )
