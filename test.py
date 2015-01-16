@@ -3,12 +3,21 @@ from ogame.constants import *
 from bs4 import BeautifulSoup
 from ogame.ogame import OGame
 from ogame.message import Message
-import re
+from ogame.espionage import Espionage
+from ogame.fleet import Fleet
 
 
-ogame = OGame(  's120-us.ogame.gameforge.com',
-                'thaunatos',
-                'ogadrepr7cHubra' )
+ogame = OGame( 	's120-us.ogame.gameforge.com', 
+				'Thaunatos', 
+				'ogadrepr7cHubra' )
+				
+coords = {
+        'galaxy': 1,
+        'system': 149,
+        'position': 4
+    }
 
-for message in ogame.messages():
-    print(message)
+fleet = Fleet(espionage=ogame.fetch_espionage(coords))
+
+print(fleet.mission)
+print(fleet.where)
