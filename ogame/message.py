@@ -54,13 +54,18 @@ class Message(object):
         self.url = self.soup.find('a', {'class':'overlay'})['href']
 
     def set_type(self):
+        self.message_type = None
         if self.sender == 'Fleet Command':
-            if self.subject.startswith('Espionage report'):
+            if self.subject.startswith('Espionage'):
                 self.message_type = 'espionage'
-            elif self.subject.startswith('Battle Report'):
-                self.message_type = 'battle'
-            elif self.subject.startswith('Return of a'):
+            elif self.subject.startswith('Combat'):
+                self.message_type = 'combat'
+            elif self.subject.startswith('Return'):
                 self.message_type = 'return'
+            elif self.subject.startstwith('Reaching'):
+                self.message_type = 'transport'
+            elif self.subject.startswith('Fleet'):
+                self.message_type = 'deployment'
         else:
             self.message_type = 'personal'
             
@@ -68,7 +73,7 @@ class Message(object):
         strainer = SoupStrainer('div', {'class':'note'})
         soup = BeautifulSoup(body_html, parse_only=strainer)
         self.body = soup.text.strip()
-        
+        return self.body
             
     def __str__(self):
         return str(self.time) + ' ' + self.subject
