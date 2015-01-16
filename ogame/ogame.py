@@ -2,6 +2,8 @@ import errors
 import constants
 from bs4 import BeautifulSoup
 from message import Message
+from espionage import Espionage
+from fleet import Fleet
 
 import requests
 import json
@@ -138,7 +140,7 @@ class OGame(object):
                 d[research] = research_reg( soup, research )
             return d
         else:
-            return research_reg( soup, name )
+            return research_reg(soup, name)
         
 
     def get_ships(self, planet_id):
@@ -437,4 +439,14 @@ class OGame(object):
                 
     def fetch_body(self, message):
         return message.get_body(self.session.get(message.url).content)
+        
+    def fetch_espionage(self, coords):
+        for message in self.messages():
+            if message.message_type == 'espionage':
+                espionage = Espionage(self.fetch_body(message))
+                if espionage.coords == coords:
+                    return espionage
+        return None
+        
+            
 
