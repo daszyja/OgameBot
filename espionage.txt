@@ -1,0 +1,23 @@
+Resources on Vz 2 [1:261:7] (Player: Croimmortal) at 01-08 12:15:40
+Metal:	73.589	Crystal:	31.359
+Deuterium:	5.907	Energy:	2.436
+Activity
+Your espionage does not show abnormalities in the atmosphere of the planet. There appears to have been no activity on the planet within the last hour.
+fleets
+Defense
+Building
+Metal Mine	18	Crystal Mine	16
+Deuterium Synthesizer	12	Solar Plant	18
+Fusion Reactor	7	Robotics Factory	2
+Shipyard	5	Metal Storage	3
+Crystal Storage	3	Deuterium Tank	3
+Research Lab	5	 	 
+Research
+Espionage Technology	4	Computer Technology	3
+Weapons Technology	5	Shielding Technology	6
+Armor Technology	6	Energy Technology	6
+Hyperspace Technology	3	Combustion Drive	6
+Impulse Drive	4	Hyperspace Drive	2
+Laser Technology	6	Ion Technology	4
+Astrophysics	3	 	 
+Chance of counter-espionage: 0 %
