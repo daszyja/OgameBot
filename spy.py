@@ -35,7 +35,7 @@ def spy( target_txt, wait_time, verbose =True ):
 
 	potential_slots = ogame.get_research('Computer Technology') + 1	
 	
-	num_probes = ogame.get_preferred_probes()
+	num_probes = ogame.get_preferred_probes(
 	home = ogame.get_planet_by_name(home))
 	while targets:
 		ogame.login()
